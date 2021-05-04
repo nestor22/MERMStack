@@ -1,9 +1,10 @@
-import app from './server.js'
-import mongodb from 'mongodb'
-import dotenv from 'dotenv'
+const app = require('./server');
+const mongodb = require('mongodb') 
+const dotenv = require('dotenv')
+
 
 dotenv.config()
-const MongoClient = mongo.MongoClient
+const MongoClient = mongodb.MongoClient
 
 const port = process.env.PORT || 8000
 
@@ -11,8 +12,9 @@ MongoClient.connect(
     process.env.RESTREVIEWS_DB_URI,
     {
         poolSize: 50, 
-        wtimeout: 5000,
-        useNewParse: true
+        
+        useNewUrlParser: true,
+        useUnifiedTopology: true
     }    
 ) 
 .catch(err=>{

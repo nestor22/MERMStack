@@ -1,6 +1,6 @@
-import express from 'express'
-import cors from 'cors'
-import restaurats from './api/restaurants.route'
+const express = require('express')
+const cors = require('cors')
+const restaurats = require('./api/restaurants.route')
 
 const app  = express()
 
@@ -13,4 +13,4 @@ app.use(express.json())
 app.use('/api/V1/restaurats', restaurats)
 app.use('*', (req, res)=> res.status(404).json({error: "not foudn"}))
 
-export default app
+module.exports = app
